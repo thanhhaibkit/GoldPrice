@@ -9,7 +9,7 @@ class GoldPriceController extends Controller
     {
         $goldPriceXml = null;
         $goldPrice = GoldPrice::first();
-        if ($goldPrice->data) {
+        if ($goldPrice && $goldPrice->data) {
             $xmlString = $goldPrice->data;
             $goldPriceXml = simplexml_load_string($xmlString)->ratelist[0];
         }
